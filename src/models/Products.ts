@@ -13,18 +13,23 @@ const Products = sequelize.define(
       type: DataType.STRING,
       allowNull: false,
     },
+    img:{
+      type:DataType.STRING,
+      allowNull:false
+    },
     precio: {
       type: DataType.STRING,
       allowNull: false,
     },
     descripcion:{
         type:DataType.STRING,
-        allowNull:false
-    }
+        allowNull:false,
+    },
+    stock:{
+      type:DataType.INTEGER,
+      allowNull:false,
+    },
   },
-  {
-    timestamps: false,
-  }
 );
 
 export default Products
