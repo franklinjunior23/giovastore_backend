@@ -10,7 +10,7 @@ const app = express();
 const PUERTO= process.env.PUERTO ;
 const Point_defect = process.env.POINT ||'api/';
 
-//confiuraciones 
+//configuraciones 
 app.use(cors({
     origin:'*'
 }));
@@ -28,7 +28,10 @@ app.get('/',async(req,res)=>{
 })
 
 app.listen(PUERTO,async()=>{
-    await sequelize.sync({ force: true });
+    // force: true 
+    
+   // para tener cambios , actualizacion de la bd /
+    await sequelize.sync({ alter: true });
     console.log(`funcionando en el puerto ${PUERTO}`)
 })
 
