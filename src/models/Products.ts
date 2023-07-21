@@ -45,7 +45,7 @@ const up = async()=>{
     console.log(error)
   }
 }
-up()
+
 
 
 

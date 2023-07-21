@@ -16,8 +16,6 @@ app.use(cors({
 }));
 app.use(express.json());
 
-
-
 app.use(`${Point_defect}/Products`,Route_Products)
 app.use(`${Point_defect}/Orders`,Route_Orders)
 
@@ -32,6 +30,6 @@ app.listen(PUERTO,async()=>{
     
    // para tener cambios , actualizacion de la bd /
     await sequelize.sync({ alter: true });
-    console.log(`funcionando en el puerto ${PUERTO}`)
+    console.log(`http://localhost:${PUERTO}/api`)
 })
 

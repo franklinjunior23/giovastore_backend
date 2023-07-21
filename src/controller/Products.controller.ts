@@ -10,3 +10,18 @@ export const GetProducts = async(req:Request, res:Response)=>{
     }
 }
 
+export const getProductOne = async(req:Request,res:Response)=>{
+    try {
+        const nombreProducto = req.params.nombre;
+        const data = await Products.findOne({where:{
+            nombre:nombreProducto
+        }});
+        if(!data){
+            return res.status(401).json({msg:'no se encuentra elproducto'})
+        }
+        res.json(data)
+    } catch (error) {
+        res.json({msg:error})
+    }
+}
+
