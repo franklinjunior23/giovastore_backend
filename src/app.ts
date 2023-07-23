@@ -5,6 +5,7 @@ import cors from 'cors';
 import Products from "./models/Products";
 import Route_Products from "./routes/Products.routes";
 import Route_Orders from "./routes/Orders.routes";
+import Login from "./routes/Login.routes";
 
 const app = express();
 const PUERTO= process.env.PUERTO ;
@@ -18,16 +19,11 @@ app.use(express.json());
 
 app.use(`${Point_defect}/Products`,Route_Products)
 app.use(`${Point_defect}/Orders`,Route_Orders)
-
-
-app.get('/',async(req,res)=>{
-    const data = await Products.findAll()
-    res.json({data : data})
-})
+app.use(`${Point_defect}/Auth`,Login)
 
 app.listen(PUERTO,async()=>{
     // force: true 
-    
+    // alter: true
    // para tener cambios , actualizacion de la bd /
     await sequelize.sync({ alter: true });
     console.log(`http://localhost:${PUERTO}/api`)

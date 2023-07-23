@@ -5,9 +5,9 @@ const Products = sequelize.define(
   "Products",
   {
     id: {
-      type: DataType.INTEGER,
+      type: DataType.STRING,
       primaryKey: true,
-      autoIncrement: true,
+      defaultValue:faker.database.mongodbObjectId() 
     },
     nombre: {
       type: DataType.STRING,
@@ -45,6 +45,7 @@ const up = async()=>{
     console.log(error)
   }
 }
+
 
 
 

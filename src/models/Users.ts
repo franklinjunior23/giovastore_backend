@@ -1,10 +1,12 @@
+import { faker } from "@faker-js/faker";
 import { sequelize } from "../database";
 import { DataType } from "sequelize-typescript";
 
 const Users = sequelize.define('Users',{
     id:{
+        type:DataType.STRING,
         primaryKey:true,
-        type:DataType.STRING 
+        defaultValue:faker.database.mongodbObjectId()
     },
     nombre:{
         type:DataType.STRING,
@@ -22,12 +24,16 @@ const Users = sequelize.define('Users',{
         type:DataType.STRING,
         allowNull:false
     },
+    img:{
+        type:DataType.STRING,
+    },
     dirrecion :{
         type:DataType.STRING,
         allowNull:false
     },
     celular:{
-        type:DataType.NUMBER,
+        type:DataType.INTEGER,
         allowNull:false
     }
 })
+export default Users
