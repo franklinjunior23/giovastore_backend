@@ -8,7 +8,7 @@ import Route_Orders from "./routes/Orders.routes";
 import Login from "./routes/Login.routes";
 
 const app = express();
-const PUERTO= process.env.PUERTO ;
+const PUERTO= process.env.PORT ;
 const Point_defect = process.env.POINT ||'api/';
 
 //configuraciones 

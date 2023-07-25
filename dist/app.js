@@ -20,7 +20,7 @@ const Products_routes_1 = __importDefault(require("./routes/Products.routes"));
 const Orders_routes_1 = __importDefault(require("./routes/Orders.routes"));
 const Login_routes_1 = __importDefault(require("./routes/Login.routes"));
 const app = (0, express_1.default)();
-const PUERTO = process.env.PUERTO;
+const PUERTO = process.env.PORT;
 const Point_defect = process.env.POINT || 'api/';
 //configuraciones 
 app.use((0, cors_1.default)({
