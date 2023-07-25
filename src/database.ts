@@ -8,7 +8,7 @@ interface Data {
 }
 
 export const sequelize = new Sequelize (process.env.DBNAME || '' , process.env.USER || '', process.env.PASWORD, {
-    host: 'localhost',
+    host: process.env.HOST,
     dialect: 'mysql'  /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */
 });
 

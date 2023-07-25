@@ -13,7 +13,7 @@ exports.Connection = exports.sequelize = void 0;
 const sequelize_1 = require("sequelize");
 require("dotenv/config");
 exports.sequelize = new sequelize_1.Sequelize(process.env.DBNAME || '', process.env.USER || '', process.env.PASWORD, {
-    host: 'localhost',
+    host: process.env.HOST,
     dialect: 'mysql' /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */
 });
 const Connection = () => __awaiter(void 0, void 0, void 0, function* () {
