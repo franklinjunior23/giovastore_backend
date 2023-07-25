@@ -34,6 +34,6 @@ app.listen(PUERTO, () => __awaiter(void 0, void 0, void 0, function* () {
     // force: true 
     // alter: true
     // para tener cambios , actualizacion de la bd /
-    yield database_1.sequelize.sync({ force: true });
+    yield database_1.sequelize.sync();
     console.log(`http://localhost:${PUERTO}/api`);
 }));
