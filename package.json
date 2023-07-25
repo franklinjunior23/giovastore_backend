@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "tsc": "tsc",
+    "start":"node dist/app.js",
     "dev": "nodemon ./src/app.ts"
   },
   "keywords": [],
@@ -24,6 +25,7 @@
     "@types/cors": "^2.8.13",
     "@types/dotenv": "^8.2.0",
     "@types/dotenv-safe": "^8.1.2",
+    "@types/jsonwebtoken": "^9.0.2",
     "@types/sequelize": "^4.28.15",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",

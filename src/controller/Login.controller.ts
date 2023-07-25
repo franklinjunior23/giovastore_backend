@@ -1,35 +1,53 @@
 import { Request, Response } from "express";
 import Users from "../models/Users";
+import { Op } from "sequelize";
+import jwt from 'jsonwebtoken';
+import 'dotenv/config'
 
+const token = process.env.SECRET_KEY_JWT || '';
 // login por defecto
 export const LoginDefault = (req:Request,res:Response)=>{
-    const {} = req.body;
+    const { usuario , contraseña } = req.body;
 
 
 } 
 // login con google
 export const LoginGoogle = async(req:Request,res:Response)=>{
-    try {
-        console.log(req.body);
-        const { family_name,given_name,email,picture } = req.body;
-        const busqueda = await Users.findOne({where:{
-            correo:email
-        }})
-        console.log(busqueda)
-        res.json({msg:'usuario encontrado'})
-    if(!busqueda){
-        const dat = await Users.create({
-            nombre:given_name,
-            apellido:family_name,
-            dni:'',
-            correo:email,
-            img:picture,
-            dirrecion:'',
-            celular:'',
-        })
-        res.json(dat);
-       
+    interface InterUser {
+        correo:string
+        nombre:string
     }
+    try {
+            const { family_name,given_name,email,picture } = req.body;
+            const busqueda:any = await Users.findOne({where:{
+                correo:{[Op.eq]:email}
+            }})  
+        if(busqueda){
+            const datos :InterUser ={
+                correo:busqueda.correo,
+                nombre:busqueda.nombre,
+            }
+            const acces =jwt.sign(datos,token,{expiresIn:'2 days'})
+            res.json({loged:true,token:acces});
+        }
+        if(!busqueda){
+            const dat:any = await Users.create({
+                nombre:given_name,
+                apellido:family_name ?? '',
+                dni:'',
+                correo:email,
+                img:picture,
+                dirrecion:'',
+                celular:'',
+            })
+            console.log(dat.correo);
+            console.log(dat);
+
+            const acces = jwt.sign({correo:dat.correo,nombre:dat.nombre},token,{expiresIn:'2 days'})
+            res.json({loged:true,token:acces});
+        }
+       
+   
     } catch (error) {
         res.json(error)
     }
