@@ -43,7 +43,7 @@ const LoginGoogle = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             const dat = yield Users_1.default.create({
                 nombre: given_name,
                 apellido: family_name !== null && family_name !== void 0 ? family_name : '',
-                dni: '',
+                dni: 0,
                 correo: email,
                 img: picture,
                 dirrecion: '',

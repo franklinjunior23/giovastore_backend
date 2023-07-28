@@ -36,7 +36,7 @@ export const LoginGoogle = async(req:Request,res:Response)=>{
             const dat:any = await Users.create({
                 nombre:given_name,
                 apellido:family_name ?? '',
-                dni:'',
+                dni:0,
                 correo:email,
                 img:picture,
                 dirrecion:'',
