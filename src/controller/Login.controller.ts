@@ -40,7 +40,7 @@ export const LoginGoogle = async(req:Request,res:Response)=>{
                 correo:email,
                 img:picture,
                 dirrecion:'',
-                celular:'',
+                celular:0,
             })
             const acces = jwt.sign({correo:dat.correo,nombre:dat.nombre},token,{expiresIn:'2 days'})
             res.json({loged:true,token:acces});
