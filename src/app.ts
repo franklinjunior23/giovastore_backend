@@ -25,7 +25,7 @@ app.listen(PUERTO,async()=>{
     // force: true 
     // alter: true
    // para tener cambios , actualizacion de la bd /
-    await sequelize.sync({force: true });
+    await sequelize.sync();
     console.log(`http://localhost:${PUERTO}/api`)
 })
 
