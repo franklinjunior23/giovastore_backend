@@ -5,6 +5,7 @@ import cors from 'cors';
 import Route_Products from "./routes/Products.routes";
 import Route_Orders from "./routes/Orders.routes";
 import Login from "./routes/Login.routes";
+import { SeedProducts } from "./seeders/products460";
 
 
 const app = express();
@@ -25,6 +26,7 @@ app.listen(PUERTO,async()=>{
     // force: true 
     // alter: true
    // para tener cambios , actualizacion de la bd /
+   SeedProducts()
     await sequelize.sync();
     console.log(`http://localhost:${PUERTO}/api`)
 })

@@ -45,7 +45,7 @@ const up = () => __awaiter(void 0, void 0, void 0, function* () {
         yield Products.sync();
         yield Products.create({
             nombre: faker_1.faker.commerce.productName(),
-            img: faker_1.faker.image.food(1000, 1600, true),
+            img: faker_1.faker.image.food(450, 400, true),
             precio: faker_1.faker.commerce.price({ min: 100, max: 1000 }),
             descripcion: faker_1.faker.commerce.productDescription(),
             stock: faker_1.faker.commerce.price({ min: 10, max: 30, dec: 0 })
@@ -55,5 +55,4 @@ const up = () => __awaiter(void 0, void 0, void 0, function* () {
         console.log(error);
     }
 });
-up();
 exports.default = Products;

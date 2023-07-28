@@ -19,6 +19,7 @@ const cors_1 = __importDefault(require("cors"));
 const Products_routes_1 = __importDefault(require("./routes/Products.routes"));
 const Orders_routes_1 = __importDefault(require("./routes/Orders.routes"));
 const Login_routes_1 = __importDefault(require("./routes/Login.routes"));
+const products460_1 = require("./seeders/products460");
 const app = (0, express_1.default)();
 const PUERTO = process.env.PORT;
 const Point_defect = process.env.POINT || 'api/';
@@ -34,6 +35,7 @@ app.listen(PUERTO, () => __awaiter(void 0, void 0, void 0, function* () {
     // force: true 
     // alter: true
     // para tener cambios , actualizacion de la bd /
+    (0, products460_1.SeedProducts)();
     yield database_1.sequelize.sync();
     console.log(`http://localhost:${PUERTO}/api`);
 }));
