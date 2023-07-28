@@ -1,13 +1,14 @@
+import { faker } from "@faker-js/faker";
 import { sequelize } from "../database";
 import { DataType } from "sequelize-typescript";
-import { faker } from '@faker-js/faker';
+import { v4 as uuidv4 } from 'uuid'; // Importa la función uuidv4 para generar IDs únicos
 const Products = sequelize.define(
   "Products",
   {
     id: {
       type: DataType.STRING,
       primaryKey: true,
-      defaultValue:faker.database.mongodbObjectId() 
+      defaultValue:() => uuidv4()
     },
     nombre: {
       type: DataType.STRING,
@@ -45,6 +46,7 @@ const up = async()=>{
     console.log(error)
   }
 }
+up()
 
 
 

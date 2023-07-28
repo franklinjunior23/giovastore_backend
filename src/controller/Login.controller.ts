@@ -14,6 +14,7 @@ export const LoginDefault = (req:Request,res:Response)=>{
 // login con google
 export const LoginGoogle = async(req:Request,res:Response)=>{
     interface InterUser {
+        id:string,
         correo:string
         nombre:string
     }
@@ -24,6 +25,7 @@ export const LoginGoogle = async(req:Request,res:Response)=>{
             }})  
         if(busqueda){
             const datos :InterUser ={
+                id:busqueda.id,
                 correo:busqueda.correo,
                 nombre:busqueda.nombre,
             }
@@ -40,9 +42,6 @@ export const LoginGoogle = async(req:Request,res:Response)=>{
                 dirrecion:'',
                 celular:'',
             })
-            console.log(dat.correo);
-            console.log(dat);
-
             const acces = jwt.sign({correo:dat.correo,nombre:dat.nombre},token,{expiresIn:'2 days'})
             res.json({loged:true,token:acces});
         }

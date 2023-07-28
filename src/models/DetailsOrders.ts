@@ -8,8 +8,8 @@ const DetailsOrders = sequelize.define('Det_Order',{
         
     },
     id_order:{
-        type:DataType.INTEGER,
-        allowNull:false
+        type:DataType.STRING,
+       
     },
     id_product:{
         type:DataType.INTEGER,
@@ -24,4 +24,5 @@ const DetailsOrders = sequelize.define('Det_Order',{
         allowNull:false
     }
 })
+
 export default DetailsOrders;
