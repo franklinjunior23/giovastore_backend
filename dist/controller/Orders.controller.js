@@ -12,8 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetDetOrder = exports.GetOrders = void 0;
+exports.CreateOrder = exports.GetDetOrder = exports.GetOrders = void 0;
 const Orders_1 = __importDefault(require("../models/Orders"));
+const DetailsOrders_1 = __importDefault(require("../models/DetailsOrders"));
+const date_1 = require("../resource/date");
+const { fechaActualLima, horaActualLima } = (0, date_1.obtenerFechaHora)();
 const GetOrders = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = yield Orders_1.default.findAll();
@@ -27,14 +30,14 @@ exports.GetOrders = GetOrders;
 const GetDetOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const order_id = req.params.order;
-        /*
-        const data = await DetailsOrders.findOne({
-            where:{
-                id_order:order_id
+        const data = yield DetailsOrders_1.default.findOne({
+            where: {
+                id_order: order_id
             }
-        })
-        res.json(data);
-        */
+        });
+        if (data) {
+            return res.json(data);
+        }
         res.send(order_id);
     }
     catch (error) {
@@ -42,3 +45,40 @@ const GetDetOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.GetDetOrder = GetDetOrder;
+const CreateOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const DetaOrden = req.body.DetaOrden;
+        console.log(fechaActualLima, horaActualLima);
+        const { id } = req.user;
+        console.log(id);
+        /* para saber el total
+        
+        let total = 0
+
+        for(const datadetalle of DetaOrden){
+            total+=datadetalle.precio*datadetalle.cantidad;
+        }
+        
+        
+        **/
+        const dat = yield Orders_1.default.create({
+            id_usuario: id,
+            fecha: fechaActualLima,
+            hora: horaActualLima,
+            status: 'En Proceso',
+            dirrecion: 'dirrecion',
+            total: 22.2
+        });
+        if (!dat) {
+            for (const Detalle of DetaOrden) {
+                yield DetailsOrders_1.default.create({});
+            }
+            return res.status(404).json({ create: false, msg: 'Usuario no logeado' });
+        }
+        res.json({ create: true, dat });
+    }
+    catch (error) {
+        res.json({ create: false, error });
+    }
+});
+exports.CreateOrder = CreateOrder;

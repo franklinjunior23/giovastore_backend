@@ -8,8 +8,7 @@ const DetailsOrders = database_1.sequelize.define('Det_Order', {
         primaryKey: true,
     },
     id_order: {
-        type: sequelize_typescript_1.DataType.INTEGER,
-        allowNull: false
+        type: sequelize_typescript_1.DataType.STRING,
     },
     id_product: {
         type: sequelize_typescript_1.DataType.INTEGER,

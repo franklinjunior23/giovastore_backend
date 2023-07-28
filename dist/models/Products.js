@@ -9,14 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const faker_1 = require("@faker-js/faker");
 const database_1 = require("../database");
 const sequelize_typescript_1 = require("sequelize-typescript");
-const faker_1 = require("@faker-js/faker");
+const uuid_1 = require("uuid"); // Importa la función uuidv4 para generar IDs únicos
 const Products = database_1.sequelize.define("Products", {
     id: {
         type: sequelize_typescript_1.DataType.STRING,
         primaryKey: true,
-        defaultValue: faker_1.faker.database.mongodbObjectId()
+        defaultValue: () => (0, uuid_1.v4)()
     },
     nombre: {
         type: sequelize_typescript_1.DataType.STRING,
@@ -54,4 +55,5 @@ const up = () => __awaiter(void 0, void 0, void 0, function* () {
         console.log(error);
     }
 });
+up();
 exports.default = Products;
