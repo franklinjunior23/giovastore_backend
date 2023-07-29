@@ -4,7 +4,7 @@ import DetailsOrders from "../models/DetailsOrders";
 import {  obtenerFechaHora } from "../resource/date";
 
 
-const { fechaActualLima, horaActualLima } = obtenerFechaHora();
+
 export const GetOrders = async(req:Request,res:Response)=>{
     try {
         const data = await Orders.findAll();
@@ -12,6 +12,29 @@ export const GetOrders = async(req:Request,res:Response)=>{
     } catch (error) {
         res.json({msg:error})
     }
+}
+export const GetOrder=async(req:Request,res:Response)=>{
+
+try {
+    const {id} = req.user
+    const busqueda = await Orders.findAll({
+        where:{
+            id_usuario:id
+        }
+    })
+    if(busqueda){
+        return res.status(201).json({exist:true,busqueda});
+    }
+    return res.status(201).json({exist:false})
+   
+} catch (error) {
+    console.log(error)
+}
+
+
+
+
+
 }
 export const GetDetOrder = async(req:Request,res:Response)=>{
     try {
@@ -33,10 +56,31 @@ export const GetDetOrder = async(req:Request,res:Response)=>{
 }
 export const CreateOrder =async (req:Request,res:Response) => {
     try {
-        const DetaOrden = req.body.DetaOrden;
-        console.log(fechaActualLima,horaActualLima);
-        const {id} = req.user
-        console.log(id)
+        const { fechaActualLima, horaActualLima } = obtenerFechaHora();
+
+        const {user,products,total} = req.body;
+        const UserInfo = req.user;
+       if(products){
+        const data_ordern:any = await Orders.create({
+            id_usuario:UserInfo.id,
+            fecha:fechaActualLima,
+            hora:horaActualLima,
+            status:'En proceso',
+            dirrecion:`${user.Departamento} / ${user.Distrito} / ${user.Dirrecion}`,
+            total:total
+        })
+        for(const detalleProduct of products){
+            await DetailsOrders.create({ 
+                id_order:data_ordern.id,
+                id_product:detalleProduct.id,
+                Cantidad:detalleProduct.cantidad
+            });
+        }
+        res.json({pedido:true})
+       }
+        
+
+
 
         /* para saber el total 
         
@@ -47,7 +91,7 @@ export const CreateOrder =async (req:Request,res:Response) => {
         }
         
         
-        **/ 
+       
         const dat = await Orders.create({
             id_usuario:id,
             fecha:fechaActualLima,
@@ -67,6 +111,7 @@ export const CreateOrder =async (req:Request,res:Response) => {
             return res.status(404).json({create:false,msg:'Usuario no logeado'})
         }
         res.json({create:true,dat})
+         **/ 
     } catch (error) {
         res.json({create:false,error})
     }

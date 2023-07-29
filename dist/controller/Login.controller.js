@@ -49,7 +49,7 @@ const LoginGoogle = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
                 dirrecion: '',
                 celular: 0,
             });
-            const acces = jsonwebtoken_1.default.sign({ correo: dat.correo, nombre: dat.nombre }, token, { expiresIn: '2 days' });
+            const acces = jsonwebtoken_1.default.sign({ id: dat.id, correo: dat.correo, nombre: dat.nombre }, token, { expiresIn: '2 days' });
             res.json({ loged: true, token: acces });
         }
     }

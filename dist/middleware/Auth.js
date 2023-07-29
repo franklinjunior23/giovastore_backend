@@ -18,7 +18,6 @@ require("dotenv/config");
 const AuthLoged = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const token = req.header(process.env.VALIDATION_HEADER || '');
-        console.log(token);
         if (!token)
             return res.status(401).json({ error: 'Unauthorized' });
         const decoded = jsonwebtoken_1.default.verify(token, process.env.SECRET_KEY_JWT || '');

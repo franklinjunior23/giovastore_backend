@@ -32,10 +32,10 @@ app.use(`${Point_defect}/Products`, Products_routes_1.default);
 app.use(`${Point_defect}/Orders`, Orders_routes_1.default);
 app.use(`${Point_defect}/Auth`, Login_routes_1.default);
 app.listen(PUERTO, () => __awaiter(void 0, void 0, void 0, function* () {
+    (0, products460_1.SeedProducts)();
     // force: true 
     // alter: true
     // para tener cambios , actualizacion de la bd /
-    (0, products460_1.SeedProducts)();
-    yield database_1.sequelize.sync();
+    yield database_1.sequelize.sync({ force: true });
     console.log(`http://localhost:${PUERTO}/api`);
 }));
