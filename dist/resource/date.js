@@ -1,65 +1,36 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.obtenerFechaHora = void 0;
-const obtenerFechaHora = () => {
-    const date = new Date();
-    // Obtener el día, mes y año y asegurar que tengan 2 dígitos
-    const day = String(date.getDate()).padStart(2, "0");
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const year = String(date.getFullYear());
-    const fechaActualLima = `${day}/${month}/${year}`;
-    // Obtener las horas y minutos
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    // Determinar si es AM o PM
-    const ampm = hours >= 12 ? "pm" : "am";
-    // Convertir a formato de 12 horas y asegurar que tengan 2 dígitos
-    hours = hours % 12 || 12;
-    const formattedHours = String(hours).padStart(2, "0");
-    const formattedMinutes = String(minutes).padStart(2, "0");
-    // Obtener la zona horaria actual en formato UTC (por ejemplo, "-0500" para Lima)
-    const timeZoneOffset = date.getTimezoneOffset();
-    const timeZoneOffsetHours = Math.floor(Math.abs(timeZoneOffset) / 60).toString().padStart(2, "0");
-    const timeZoneOffsetMinutes = (Math.abs(timeZoneOffset) % 60).toString().padStart(2, "0");
-    const timeZone = `${timeZoneOffset >= 0 ? "-" : "+"}${timeZoneOffsetHours}${timeZoneOffsetMinutes}`;
-    const horaActualLima = `${formattedHours}:${formattedMinutes} ${ampm} UTC${timeZone}`;
-    return { fechaActualLima, horaActualLima };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
 };
-exports.obtenerFechaHora = obtenerFechaHora;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.obtenerFechaYHoraDeLima = void 0;
+const axios_1 = __importDefault(require("axios"));
+function obtenerFechaYHoraDeLima() {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const response = yield axios_1.default.get("http://worldtimeapi.org/api/timezone/America/Lima");
+            const data = response.data;
+            const fechaHoraLima = {
+                fecha: data.datetime.slice(0, 10),
+                hora: data.datetime.slice(11, 19), // Obtener los caracteres del 11 al 19 (la hora en formato "HH:MM:SS")
+            };
+            return fechaHoraLima;
+        }
+        catch (error) {
+        }
+    });
+}
+exports.obtenerFechaYHoraDeLima = obtenerFechaYHoraDeLima;
 /*
 codigo antes del dia
-interface FechaHora {
- fechaActualLima: string;
- horaActualLima: string;
-}
-
-export const obtenerFechaHora = (): FechaHora => {
- const date = new Date();
-
- // Obtener el día, mes y año y asegurar que tengan 2 dígitos
- const day = String(date.getDate()).padStart(2, "0");
- const month = String(date.getMonth() + 1).padStart(2, "0");
- const year = String(date.getFullYear());
-
- const fechaActualLima = `${day}/${month}/${year}`;
-
- // Obtener las horas y minutos
- let hours = date.getHours();
- let minutes = date.getMinutes();
-
- // Determinar si es AM o PM
- const ampm = hours >= 12 ? "pm" : "am";
-
- // Convertir a formato de 12 horas y asegurar que tengan 2 dígitos
- hours = hours % 12 || 12;
- const formattedHours = String(hours).padStart(2, "0");
- const formattedMinutes = String(minutes).padStart(2, "0");
-
- const horaActualLima = `${formattedHours}:${formattedMinutes} ${ampm}`;
-
- return { fechaActualLima, horaActualLima };
-};
-
-
 
 */ 

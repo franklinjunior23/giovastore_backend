@@ -19,7 +19,6 @@ const cors_1 = __importDefault(require("cors"));
 const Products_routes_1 = __importDefault(require("./routes/Products.routes"));
 const Orders_routes_1 = __importDefault(require("./routes/Orders.routes"));
 const Login_routes_1 = __importDefault(require("./routes/Login.routes"));
-const products460_1 = require("./seeders/products460");
 const app = (0, express_1.default)();
 const PUERTO = process.env.PORT;
 const Point_defect = process.env.POINT || 'api/';
@@ -32,10 +31,9 @@ app.use(`${Point_defect}/Products`, Products_routes_1.default);
 app.use(`${Point_defect}/Orders`, Orders_routes_1.default);
 app.use(`${Point_defect}/Auth`, Login_routes_1.default);
 app.listen(PUERTO, () => __awaiter(void 0, void 0, void 0, function* () {
-    (0, products460_1.SeedProducts)();
     // force: true 
     // alter: true
     // para tener cambios , actualizacion de la bd /
-    yield database_1.sequelize.sync({ alter: true });
+    yield database_1.sequelize.sync();
     console.log(`http://localhost:${PUERTO}/api`);
 }));
