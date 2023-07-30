@@ -24,7 +24,7 @@ app.use(`${Point_defect}/Orders`, Route_Orders)
 app.use(`${Point_defect}/Auth`,Login)
 
 app.listen(PUERTO,async()=>{
-   await SeedProducts();
+  
     // force: true 
     // alter: true
    // para tener cambios , actualizacion de la bd /
