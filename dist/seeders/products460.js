@@ -90,7 +90,7 @@ const SeedProducts = () => __awaiter(void 0, void 0, void 0, function* () {
         for (const datos of dat) {
             const existingRecord = yield Products_1.default.findOne({ where: datos });
             if (!existingRecord) {
-                yield Products_1.default.create(datos);
+                yield Products_1.default.create({ datos });
                 console.log('New record inserted:', datos);
             }
             else {
