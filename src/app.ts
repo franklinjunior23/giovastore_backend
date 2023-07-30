@@ -25,10 +25,10 @@ app.use(`${Point_defect}/Auth`,Login)
 
 app.listen(PUERTO,async()=>{
     SeedProducts()
-    // 
+    // force: true 
     // alter: true
    // para tener cambios , actualizacion de la bd /
-    await sequelize.sync({force: true });
+    await sequelize.sync();
     console.log(`http://localhost:${PUERTO}/api`)
 })
 
