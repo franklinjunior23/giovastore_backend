@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import Orders from "../models/Orders";
 import DetailsOrders from "../models/DetailsOrders";
 import { obtenerFechaYHoraDeLima } from "../resource/date";
-
-
+import { Model, Op } from "sequelize";
+import Products from "../models/Products";
 
 export const GetOrders = async(req:Request,res:Response)=>{
     try {
@@ -30,30 +30,8 @@ try {
 } catch (error) {
     console.log(error)
 }
-
-
-
-
-
 }
-export const GetDetOrder = async(req:Request,res:Response)=>{
-    try {
-        const order_id = req.params.order
-        
-        const data = await DetailsOrders.findOne({
-            where:{
-                id_order:order_id
-            }
-        })
-        if(data){
-           return res.json(data);
-        }
-        
-        res.send(order_id);
-    } catch (error) {
-        res.json({msg:error})
-    }
-}
+
 export const CreateOrder =async (req:Request,res:Response) => {
     try {
        const Hora_data= await obtenerFechaYHoraDeLima()
@@ -89,6 +67,26 @@ export const CreateOrder =async (req:Request,res:Response) => {
     
 }
 
+export const GetDetOrder = async(req:Request,res:Response)=>{
+    try {
+        const {id} = req.user
+        const {id_orden}= req.body
+        console.log(id_orden)
+       const data = await DetailsOrders.findAll({
+        where:{
+            id_order:id_orden
+        },
+        include:[
+           { 
+            model:Products,
+           }
+        ]
+       })
+       res.json(data)  
+    } catch (error) {
+        res.json({msg:error})
+    }
+}
 
 /***
  *  const { fechaActualLima, horaActualLima } = obtenerFechaHora();

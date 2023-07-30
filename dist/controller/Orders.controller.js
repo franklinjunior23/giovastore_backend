@@ -12,10 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateOrder = exports.GetDetOrder = exports.GetOrder = exports.GetOrders = void 0;
+exports.GetDetOrder = exports.CreateOrder = exports.GetOrder = exports.GetOrders = void 0;
 const Orders_1 = __importDefault(require("../models/Orders"));
 const DetailsOrders_1 = __importDefault(require("../models/DetailsOrders"));
 const date_1 = require("../resource/date");
+const Products_1 = __importDefault(require("../models/Products"));
 const GetOrders = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const data = yield Orders_1.default.findAll();
@@ -44,24 +45,6 @@ const GetOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.GetOrder = GetOrder;
-const GetDetOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const order_id = req.params.order;
-        const data = yield DetailsOrders_1.default.findOne({
-            where: {
-                id_order: order_id
-            }
-        });
-        if (data) {
-            return res.json(data);
-        }
-        res.send(order_id);
-    }
-    catch (error) {
-        res.json({ msg: error });
-    }
-});
-exports.GetDetOrder = GetDetOrder;
 const CreateOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const Hora_data = yield (0, date_1.obtenerFechaYHoraDeLima)();
@@ -96,6 +79,28 @@ const CreateOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.CreateOrder = CreateOrder;
+const GetDetOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id } = req.user;
+        const { id_orden } = req.body;
+        console.log(id_orden);
+        const data = yield DetailsOrders_1.default.findAll({
+            where: {
+                id_order: id_orden
+            },
+            include: [
+                {
+                    model: Products_1.default,
+                }
+            ]
+        });
+        res.json(data);
+    }
+    catch (error) {
+        res.json({ msg: error });
+    }
+});
+exports.GetDetOrder = GetDetOrder;
 /***
  *  const { fechaActualLima, horaActualLima } = obtenerFechaHora();
 

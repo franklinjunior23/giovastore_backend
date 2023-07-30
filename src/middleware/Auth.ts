@@ -14,6 +14,7 @@ export const AuthLoged = async(req:Request,res:Response,next: NextFunction)=>{
 try {
     
     const token = req.header(process.env.VALIDATION_HEADER||'')
+    
     if(!token)return res.status(401).json({ error: 'Unauthorized' });
 
     const decoded = jwt.verify(token, process.env.SECRET_KEY_JWT||'');

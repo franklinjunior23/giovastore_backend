@@ -71,7 +71,7 @@ const dat = [
         descripcion: "El Organizador Manchester de 8 Secciones es un práctico y elegante accesorio que te ayudará a mantener tu espacio ordenado y bien organizado. ",
         stock: 20
     }, {
-        nombre: "Closet Allegro 4 Puertas / 2 Cajones",
+        nombre: "Closet Allegro 4 Puertas 2 Cajones",
         img: "https://plazahome.pe/wp-content/uploads/2020/06/CLW-2143_1-scaled.jpg",
         precio: "1329.00",
         descripcion: "El Closet Allegro de 4 Puertas y 2 Cajones es una solución ideal para el almacenamiento y organización de tus prendas y accesorios en el hogar.",

@@ -6,6 +6,6 @@ const Auth_1 = require("../middleware/Auth");
 const Route_Orders = (0, express_1.Router)();
 Route_Orders.get('/', Orders_controller_1.GetOrders);
 Route_Orders.get('/user', Auth_1.AuthLoged, Orders_controller_1.GetOrder);
+Route_Orders.post('/detalle', Auth_1.AuthLoged, Orders_controller_1.GetDetOrder);
 Route_Orders.post('/', Auth_1.AuthLoged, Orders_controller_1.CreateOrder);
-Route_Orders.get('/:order/Details', Orders_controller_1.GetDetOrder);
 exports.default = Route_Orders;

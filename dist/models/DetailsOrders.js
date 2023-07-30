@@ -26,10 +26,12 @@ const DetailsOrders = database_1.sequelize.define('Det_Order', {
 });
 Products_1.default.hasMany(DetailsOrders, {
     foreignKey: 'id_product',
-    sourceKey: 'id'
+    sourceKey: 'id',
+    onDelete: 'cascade',
+    onUpdate: 'cascade'
 });
 DetailsOrders.belongsTo(Products_1.default, {
     foreignKey: 'id_product',
-    targetKey: 'id'
+    targetKey: 'id',
 });
 exports.default = DetailsOrders;

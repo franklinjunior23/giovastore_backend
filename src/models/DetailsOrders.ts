@@ -22,11 +22,14 @@ const DetailsOrders = sequelize.define('Det_Order',{
 })
 Products.hasMany(DetailsOrders,{
     foreignKey:'id_product',
-    sourceKey:'id'
-})
+    sourceKey:'id',
+    onDelete:'cascade',
+    onUpdate:'cascade'
+},)
 DetailsOrders.belongsTo(Products,{
     foreignKey:'id_product',
-    targetKey:'id'
+    targetKey:'id',
+    
 })
 
 export default DetailsOrders;
