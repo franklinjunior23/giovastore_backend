@@ -24,12 +24,12 @@ app.use(`${Point_defect}/Orders`, Route_Orders)
 app.use(`${Point_defect}/Auth`,Login)
 
 app.listen(PUERTO,async()=>{
-   await SeedProducts()
+    SeedProducts();
     // force: true 
     // alter: true
    // para tener cambios , actualizacion de la bd /
 
-    await sequelize.sync();
+    await sequelize.sync({alter: true});
     console.log(`http://localhost:${PUERTO}/api`)
 })
 
