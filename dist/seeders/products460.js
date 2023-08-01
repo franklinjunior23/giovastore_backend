@@ -16,73 +16,74 @@ exports.SeedProducts = void 0;
 const Products_1 = __importDefault(require("../models/Products"));
 const dat = [
     {
-        nombre: 'Seccional Izquierdo Milo Tapizado En Tela',
-        img: "https://plazahome.pe/wp-content/uploads/2022/12/7.-Sofa-en-L-Milo.jpg",
-        precio: "1650.00",
-        descripcion: "Seccional iquierdo Milo Tapizado En Tela con cojines en asiento y respaldo rellenos de espuma y algodón tapizado en tela con estructura de madera con patas de madera.El Seccional Milo Tapizado En Tela con un diseño único y elegante",
-        stock: 10
+        "nombre": "Camiseta básica blanca",
+        "img": "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690869435/polo_blanco_ug6oan.jpg",
+        "precio": "15.00",
+        "descripcion": " Esta camiseta básica de algodón en color blanco es una prenda imprescindible en tu colección de ropa. Su diseño sencillo y versátil te permite combinarla fácilmente con cualquier outfit, ya sea para un look casual o más elegante. ",
+        "stock": 50
     },
     {
-        nombre: 'Seccional Derecho Nacho tapizado tela',
-        img: "https://plazahome.pe/wp-content/uploads/2023/06/Seccional-Derecho-Nacho-tapizado-tela-2-768x768.jpg",
-        precio: "1579.00",
-        descripcion: "Seccional Derecho Nacho con cojines en asiento y respaldo rellenos de Napa + Espuma tapizado en tela con estructura de madera con patas de metal lacado en negro. ",
-        stock: 10
+        "nombre": "Camiseta estampada",
+        "img": "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690869434/camiseta_estampa_ykn78o.jpg",
+        "precio": "20.00",
+        "descripcion": "Agrega un toque de estilo y originalidad a tu look con esta camiseta estampada. Su diseño con estampado y cuello redondo la hace resaltar entre las demás. Perfecta para looks informales y relajados, te brinda comodidad y estilo al mismo tiempo. Su tejido de calidad asegura una larga durabilidad. No te pierdas la oportunidad de adquirir esta prenda con un stock limitado.",
+        "stock": 30
     },
     {
-        nombre: "Centro De Entretenimiento Prasa",
-        img: "https://plazahome.pe/wp-content/uploads/2020/06/VILL203.jpg",
-        precio: "749.00",
-        descripcion: "Decora cada rincón de tu hogar con los muebles de Decohome, donde nos caracterizamos en ofrecer productos con altos estandares de calidad en tiempos de entrega reducidos. ",
-        stock: 15
+        "nombre": "Pantalones vaqueros azules",
+        "img": "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690869434/pantalon_vaquerp_zedog7.jpg",
+        "precio": "40.00",
+        "descripcion": " Estos pantalones vaqueros de estilo clásico en color azul son un básico atemporal en tu vestuario. Su diseño versátil te permite usar para diversas ocasiones. Su ajuste cómodo y su tejido resistente aseguran que se pueden usar durante mucho tiempo. Combínalos con tus camisetas o blusas favoritas para crear diferentes looks. Asegúrese de tenerlos en su armario antes de que se agoten.",
+        "stock": 20
     },
     {
-        nombre: "Escritorio Pepe con 2 Cajones y Repisas Laterales",
-        img: "https://plazahome.pe/wp-content/uploads/2023/02/Escritorio-Pepe-1.jpg",
-        precio: "849.00",
-        descripcion: "Escritorio Pepe con 2 Cajones y Repisas Laterales es un elegante y funcional escritorio diseñado para brindar comodidad y practicidad en tu espacio de trabajo u oficina en el hogar.",
-        stock: 10
+        "nombre": "Vestido de verano",
+        "img": "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690869959/rBVap2DfRRyAQLiSAAEHSoTIMXU249.jpg_xnyjg7.webp",
+        "precio": "50.00",
+        "descripcion": "Prepárate para el verano con este encantador vestido de tirantes. Su diseño ligero y fresco te mantiene cómodo durante los días calurosos. Ideal para paseos en la playa, salidas con amigos o eventos al aire libre. Con su elegante estilo y precio asequible, es una opción perfecta para disfrutar de la temporada estival con estilo.",
+        "stock": 15
     },
     {
-        nombre: "Escritorio de Melamina Salim",
-        img: "https://plazahome.pe/wp-content/uploads/2020/05/VIL0124-1.jpg",
-        precio: "709.00",
-        descripcion: "El Escritorio de Melamina Salim es una elegante y moderna adición para tu espacio de trabajo o estudio. Diseñado con atención a los detalles",
-        stock: 20
+        "nombre": "Chaqueta de cuero",
+        "img": "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690870067/Chaqueta-en-cuero-sintetico---Negro---H-M-CL_ubcbgy.jpg",
+        "precio": "80.00",
+        "descripcion": "Prepárate para el verano con este encantador vestido de tirantes. Su diseño ligero y fresco te mantiene cómodo durante los días calurosos. Ideal para paseos en la playa, salidas con amigos o eventos al aire libre. Con su elegante estilo y precio asequible, es una opción perfecta para disfrutar de la temporada estival con estilo.",
+        "stock": 25
     },
     {
-        nombre: "Escritorio de Melamina Power",
-        img: "https://plazahome.pe/wp-content/uploads/2021/04/2-ESCRITORIO-POWER-1-768x768.jpg",
-        precio: "849.00",
-        descripcion: "El Escritorio de Melamina Power es una opción funcional y estética para crear un área de trabajo eficiente y productiva. Ya sea en la oficina o en el hogar, este mueble te brinda la comodidad .",
-        stock: 20
+        "nombre": "poleras con capucha",
+        "img": "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690870122/sudadera_mujer_uniformes_rmsbee.jpg",
+        "precio": "35.00",
+        "descripcion": "Esta polera con capucha es perfecta para tus actividades deportivas o para lucir un look casual y cómodo. Su diseño moderno y bolsillo delantero le dan un toque especial. El tejido de alta calidad asegura comodidad durante todo el día. Aproveche su disponibilidad limitada y llévatela antes de que se agote.",
+        "stock": 40
     },
     {
-        nombre: "Escritorio de Melamina Acre",
-        img: "https://plazahome.pe/wp-content/uploads/2020/05/ERB-2689_1-scaled-scaled-768x768.jpg",
-        precio: "609.00",
-        descripcion: "El Escritorio de Melamina Acre es una opción versátil y funcional para crear un espacio de trabajo eficiente y cómodo. Diseñado con cuidado y precisión.",
-        stock: 20
+        "nombre": "Falda plisada",
+        "img": "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690870175/20303c.89_rwujtc.jpg",
+        "precio": "30.00",
+        "descripcion": "Esta elegante falda plisada en color blanco es una prenda versátil y aumentará para añadir a tu armario. Su diseño plisado y corte favorecedor le dan un toque femenino y encantador. Perfecta para ocasiones formales o eventos especiales.",
+        "stock": 10
     },
     {
-        nombre: "Organizador Manchester 8 Secciones",
-        img: "https://plazahome.pe/wp-content/uploads/2020/06/VILL222-768x768.jpg",
-        precio: "609.00",
-        descripcion: "El Organizador Manchester de 8 Secciones es un práctico y elegante accesorio que te ayudará a mantener tu espacio ordenado y bien organizado. ",
-        stock: 20
-    }, {
-        nombre: "Closet Allegro 4 Puertas 2 Cajones",
-        img: "https://plazahome.pe/wp-content/uploads/2020/06/CLW-2143_1-scaled.jpg",
-        precio: "1329.00",
-        descripcion: "El Closet Allegro de 4 Puertas y 2 Cajones es una solución ideal para el almacenamiento y organización de tus prendas y accesorios en el hogar.",
-        stock: 15
+        "nombre": "Camisa de rayas",
+        "img": "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690870233/0199495401_1_1_16_tv3dlj.webp",
+        "precio": "25.00",
+        "descripcion": "Esta elegante falda plisada en color blanco es una prenda versátil y aumentará para añadir a tu armario. Su diseño plisado y corte favorecedor le dan un toque femenino y encantador.",
+        "stock": 35
     },
     {
-        nombre: "Centro De Entretenimiento – Polonia",
-        img: "https://plazahome.pe/wp-content/uploads/2020/05/VIL0113WE.jpg",
-        precio: "589.00",
-        descripcion: "El Centro de Entretenimiento está compuesto por una estructura resistente y duradera, fabricada con materiales de alta calidad,",
-        stock: 20
+        "nombre": "Zapatos de cuero",
+        "img": "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690870275/Dcuero2-10-scaled-1_upf9gk.webp",
+        "precio": "60.00",
+        "descripcion": "Esta elegante falda plisada en color blanco es una prenda versátil y aumentará para añadir a tu armario. Su diseño plisado y corte favorecedor le dan un toque femenino y encantador. Perfecta para ocasiones formales o eventos especiales.",
+        "stock": 18
+    },
+    {
+        "nombre": "Gorro de lana",
+        "img": "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690870350/40a86b46859eba4f04a9bc2a29bdf3a9_kgwcm7.jpg",
+        "precio": "13.00",
+        "descripcion": " Mantén tu cabeza abrigada con este gorro de lana suave y cálido en color marrón. Perfecto para los días fríos de invierno, este gorro es un accesorio imprescindible para complementar tus outfits de temporada.",
+        "stock": 50
     }
 ];
 const SeedProducts = () => __awaiter(void 0, void 0, void 0, function* () {
