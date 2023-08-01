@@ -33,14 +33,14 @@ const dat = [
         nombre: "Pantalones vaqueros azules",
         img: "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690869434/pantalon_vaquerp_zedog7.jpg",
         precio: "40.00",
-        descripcion: " Estos pantalones vaqueros de estilo clásico en color azul son un básico atemporal en tu vestuario. Su diseño versátil te permite usar para diversas ocasiones. Su ajuste cómodo y su tejido resistente aseguran que se pueden usar durante mucho tiempo.",
+        descripcion: "Estos pantalones vaqueros de estilo clásico en color azul son un básico atemporal en tu vestuario. Su diseño versátil te permite usar para diversas ocasiones. Su ajuste cómodo y su tejido resistente aseguran que se pueden usar durante mucho tiempo.",
         stock: 20
     },
     {
         nombre: "Vestido de verano",
         img: "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690869959/rBVap2DfRRyAQLiSAAEHSoTIMXU249.jpg_xnyjg7.webp",
         precio: "50.00",
-        descripcion: "Prepárate para el verano con este encantador vestido de tirantes. Su diseño ligero y fresco te mantiene cómodo durante los días calurosos. Ideal para paseos en la playa, salidas con amigos o eventos al aire libre.",
+        descripcion: "Prepárate para el verano con este encantador vestido de tirantes. Su diseño ligero y fresco te mantiene cómodo durante los días calurosos.Ideal para paseos en la playa, salidas con amigos o eventos al aire libre.",
         "stock": 15
     },
     {
@@ -54,35 +54,35 @@ const dat = [
         nombre: "poleras con capucha",
         img: "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690870122/sudadera_mujer_uniformes_rmsbee.jpg",
         precio: "35.00",
-        descripcion: "Esta polera con capucha es perfecta para tus actividades deportivas o para lucir un look casual y cómodo. Su diseño moderno y bolsillo delantero le dan un toque especial. El tejido de alta calidad asegura comodidad durante todo el día. ",
+        descripcion: "Esta polera con capucha es perfecta para tus actividades deportivas o para lucir un look casual y cómodo. Su diseño moderno y bolsillo delantero le dan un toque especial. El tejido de alta calidad asegura comodidad durante todo el día.",
         stock: 40
     },
     {
         nombre: "Falda plisada",
         img: "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690870175/20303c.89_rwujtc.jpg",
         precio: "30.00",
-        descripciom: "Esta elegante falda plisada en color blanco es una prenda versátil y aumentará para añadir a tu armario. Su diseño plisado y corte favorecedor le dan un toque femenino y encantador. Perfecta para ocasiones formales o eventos especiales.",
+        descripciom: "Esta elegante falda plisada en color blanco es una prenda versátil y aumentará para añadir a tu armario.",
         stock: 10
     },
     {
         nombre: "Camisa de rayas",
         img: "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690870233/0199495401_1_1_16_tv3dlj.webp",
         precio: "25.00",
-        descripcion: "Esta elegante falda plisada en color blanco es una prenda versátil y aumentará para añadir a tu armario. Su diseño plisado y corte favorecedor le dan un toque femenino y encantador.",
+        descripcion: "Esta elegante falda plisada en color blanco es una prenda versátil y aumentará para añadir a tu armario.",
         stock: 35
     },
     {
         nombre: "Zapatos de cuero",
         img: "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690870275/Dcuero2-10-scaled-1_upf9gk.webp",
         precio: "60.00",
-        descripcion: "Esta elegante falda plisada en color blanco es una prenda versátil y aumentará para añadir a tu armario. Su diseño plisado y corte favorecedor le dan un toque femenino y encantador. Perfecta para ocasiones formales o eventos especiales.",
+        descripcion: "Esta elegante falda plisada en color blanco es una prenda versátil y aumentará para añadir a tu armario.Su diseño plisado y corte favorecedor le dan un toque femenino y encantador. ",
         stock: 18
     },
     {
         nombre: "Gorro de lana",
         img: "https://res.cloudinary.com/dw4ebpypt/image/upload/v1690870350/40a86b46859eba4f04a9bc2a29bdf3a9_kgwcm7.jpg",
         precio: "13.00",
-        descripcion: " Mantén tu cabeza abrigada con este gorro de lana suave y cálido en color marrón. Perfecto para los días fríos de invierno, este gorro es un accesorio imprescindible para complementar tus outfits de temporada.",
+        descripcion: "Mantén tu cabeza abrigada con este gorro de lana suave y cálido en color marrón.Perfecto para los días fríos de invierno.",
         stock: 50
     }
 ];
